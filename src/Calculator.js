@@ -22,6 +22,9 @@ const Calculator = () => {
     }
 
     const calculateResult = (exp) => {
+        if (exp === '') {
+            return 'Error';
+        }
         const operators = ['+', '-', '*', '/'];
         const precedence = {
             '+': 1,
@@ -42,7 +45,7 @@ const Calculator = () => {
                 while (stack.length && stack[stack.length - 1] !== '(') {
                     output.push(stack.pop());
                 }
-                stack.pop(); // Pop '('
+                stack.pop();
             } else if (operators.includes(char)) {
                 while (
                     stack.length &&
@@ -85,10 +88,13 @@ const Calculator = () => {
                         evalStack.push(num1 * num2);
                         break;
                     case '/':
-                        if (num2 === 0) {
-                            throw new Error('Division by zero');
+                        if (num1 === 0 && num2 === 0) {
+                            evalStack.push('Infinity');
+                        } else if (num1 !== 0 && num2 === 0) {
+                            evalStack.push('NaN');
+                        } else {
+                            evalStack.push(num1 / num2);
                         }
-                        evalStack.push(num1 / num2);
                         break;
                     default:
                         throw new Error('Invalid operator');
