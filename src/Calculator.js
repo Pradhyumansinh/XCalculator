@@ -89,9 +89,9 @@ const Calculator = () => {
                         break;
                     case '/':
                         if (num1 === 0 && num2 === 0) {
-                            evalStack.push('Infinity');
-                        } else if (num1 !== 0 && num2 === 0) {
                             evalStack.push('NaN');
+                        } else if (num1 !== 0 && num2 === 0) {
+                            evalStack.push('Infinity');
                         } else {
                             evalStack.push(num1 / num2);
                         }
