@@ -1,0 +1,23 @@
+.row{
+    width:100%;
+}
+
+button{
+    margin:10px;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    font-variant: bold;
+    border:1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.result{
+    color:gray;
+    letter-spacing: -1px;
+}
+
+.inputBox{
+    letter-spacing: -1px;
+}
